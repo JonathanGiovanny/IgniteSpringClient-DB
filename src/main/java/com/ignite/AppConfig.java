@@ -23,7 +23,8 @@ public class AppConfig {
 	private AppService appService;
 
 	private void callService() {
-		this.appService.callCache();
+		//this.appService.get(1104L);
+		this.appService.getAll();
 	}
 
 	public static void main(String[] args) {
