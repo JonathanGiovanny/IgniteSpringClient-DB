@@ -55,4 +55,18 @@ public class AppServiceImpl implements AppService {
 		// After the time prints now proceed to print the results
 		System.out.println(cursor.getAll());
 	}
+
+	@Override
+	public void save(Student student) {
+		ClientCache<Long, Student> cache = igniteClient.getOrCreateCache(CACHE_NAME);
+
+		LocalTime startTime = LocalTime.now();
+
+		cache.put(student.getId(), student);
+
+		LocalTime endTime = LocalTime.now();
+		System.out.println("[loadCache] Time pre: " + startTime);
+		System.out.println("[loadCache] Time pos: " + endTime);
+		System.out.println("[loadCache] Time diff: " + (endTime.getNano() - startTime.getNano()));
+	}
 }

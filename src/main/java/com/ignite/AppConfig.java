@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.ignite.model.Student;
+
 /**
  * https://apacheignite.readme.io/docs/getting-started
  * 
@@ -23,8 +25,9 @@ public class AppConfig {
 	private AppService appService;
 
 	private void callService() {
-		//this.appService.get(1104L);
-		this.appService.getAll();
+		//this.appService.get(2003L);
+		//this.appService.getAll();
+		this.appService.save(new Student(2005L, "Euell", 4.3));
 	}
 
 	public static void main(String[] args) {
